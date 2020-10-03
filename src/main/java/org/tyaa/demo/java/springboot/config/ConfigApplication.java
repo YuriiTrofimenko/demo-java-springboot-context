@@ -18,15 +18,17 @@ public class ConfigApplication {
 
 	@Bean
 	public CommandLineRunner initData(
-			Unit unit,
-			Building building,
-			Weapon weapon
+			@Qualifier("dragonUnit") Unit dragonUnit,
+			@Qualifier("warrior") Unit warriorUnit
 	) {
 		return args -> {
 			/* Annotations approach */
-			System.out.println(unit.getName());
+			/* System.out.println(unit.getName());
 			System.out.println(building.getName());
-			System.out.println(weapon.getName());
+			System.out.println(weapon.getName()); */
+			/* Java config approach */
+			System.out.println(dragonUnit.getName());
+			System.out.println(warriorUnit.getName());
 		};
 	}
 }
